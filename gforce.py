@@ -9,7 +9,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import font as tkFont
 
-# Dados Obtdos
+# Data to obtain
 class SPageFilePhysics(ctypes.Structure):
     _pack_ = 1
     _fields_ = [
@@ -22,7 +22,7 @@ class SPageFilePhysics(ctypes.Structure):
         ('steerAngle', ctypes.c_float),
         ('speedKmh', ctypes.c_float),
         ('velocity', ctypes.c_float * 3),
-        ('accG', ctypes.c_float * 3),  # <-- Nossos dados!
+        ('accG', ctypes.c_float * 3),  # <-- our data
         ('wheelSlip', ctypes.c_float * 4),
         ('wheelLoad', ctypes.c_float * 4),
         ('wheelsPressure', ctypes.c_float * 4),
@@ -104,7 +104,7 @@ class TelemetryApp:
     def __init__(self, root_window):
         self.root = root_window
         self.root.title("Telemetria ACC - Força G")
-        self.root.geometry("350x200") # Tamanho da janela
+        self.root.geometry("350x200") # Window
         
         self.shm = None
         self.csv_file = None
@@ -151,7 +151,7 @@ class TelemetryApp:
 
         ttk.Label(frame, textvariable=self.status_var, style="Status.TLabel").grid(row=4, column=0, columnspan=2, sticky=tk.W, padx=5)
 
-        frame.columnconfigure(1, weight=1) # Faz a coluna 1 expandir
+        frame.columnconfigure(1, weight=1) # Expand column one
 
     def setup_csv(self):
         """Abre o arquivo CSV e escreve o cabeçalho."""
